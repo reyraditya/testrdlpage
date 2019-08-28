@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Welcome from './Welcome';
 import FormUserDetail from './FormUserDetails';
 
 export class UserForm extends Component {
@@ -41,17 +42,24 @@ export class UserForm extends Component {
         switch(step) {
             case 1:
                 return(
+                    <Welcome
+                    nextStep={this.nextStep}
+                    />
+                )
+            case 2:
+                return(
                     <FormUserDetail
                     nextStep={this.nextStep}
+                    prevStep={this.prevStep}
                     handleChange={this.handleChange}
                     values={values}
                     />
                 )
-            case 2:
-                return <h1>FormPersonalDetail</h1>
             case 3:
-                return <h1>Confirm</h1>
+                return <h1>FormPersonalDetail</h1>
             case 4:
+                return <h1>Confirm</h1>
+            case 5:
                 return <h1>Success</h1>
             default:
                 return 
